@@ -3,12 +3,15 @@
 #include <stdio.h>
 
 // Prompts the user to give a valid output
-int valid_input(void);
+int valid_input(const int from, const int to);
 
 int main(void)
 {
+    const int from = 1;
+    const int to = 8;
+
     // Getting the valid input
-    int height = valid_input();
+    int height = valid_input(from, to);
 
     // Making the pyramid and printing it
     for (int i = 0; i < height; i ++)
@@ -34,13 +37,13 @@ int main(void)
 
 
 
-int valid_input(void)
+int valid_input(const int from, const int to)
 {
     int n;
     do
     {
         n = get_int("Height: ");
     }
-    while (n < 1 || n > 8);
+    while (n < from || n > to);
     return n;
 }
